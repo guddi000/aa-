@@ -1,0 +1,465 @@
+*********************************slip1(A)***********************************
+NAME:- SHINDE SAHIL VILAS ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+
+PROGRAM NAME:- A) Write a Python program to accept n numbers in list and remove duplicates from a list
+
+***************************************************************************
+list1 = []
+n = int(input("Enter number of elements of list:")) print("Enter elements of list: ")
+for i in range(n):
+num = int(input()) list1.append(num) set1 = set(list1) list1 = list(set1) print(list1)
+**************************************OUTPUT:***********************************
+Enter the number of elements in list:4 Enter element1:10 Enter element2:20 Enter element3:30 Enter element4:10 Non-duplicate items: [10, 20, 30]
+
+
+***************************************************************************
+ 
+
+*********************************slip1(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- java programming
+
+PROGRAM NAME:- B) Write Python GUI program to take accept your birthdate and output your age when a button is pressed.
+
+***************************************************************************
+
+from tkinter import *
+from tkinter import messagebox def clearAll():
+dayField.delete(0, END) monthField.delete(0, END) yearField.delete(0, END) givenDayField.delete(0, END) givenMonthField.delete(0, END) givenYearField.delete(0, END) rsltDayField.delete(0, END) rsltMonthField.delete(0, END) rsltYearField.delete(0, END)
+def is_leap_year(year):
+return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0) def calculateAge():
+try:
+birth_day = int(dayField.get()) birth_month = int(monthField.get()) birth_year = int(yearField.get()) given_day = int(givenDayField.get()) given_month = int(givenMonthField.get()) given_year = int(givenYearField.get())
+if birth_month < 1 or birth_month > 12 or given_month < 1 or given_month > 12: messagebox.showerror("Invalid Input", "Please enter a valid month.")
+return
+if birth_day < 1 or birth_day > 31 or given_day < 1 or given_day > 31: messagebox.showerror("Invalid Input", "Please enter a valid day.") return
+month_days = [31, 28 + is_leap_year(given_year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] if birth_day > given_day:
+given_month -= 1
+given_day += month_days[birth_month - 1] if birth_month > given_month:
+given_year -= 1
+given_month += 12
+calculated_day = given_day - birth_day calculated_month = given_month - birth_month calculated_year = given_year - birth_year rsltDayField.insert(10, str(calculated_day))
+ 
+rsltMonthField.insert(10, str(calculated_month)) rsltYearField.insert(10, str(calculated_year)) except ValueError:
+messagebox.showerror("Invalid Input", "Please enter valid numeric values.") if     name	== " main ":
+gui = Tk() gui.configure(background="light green") gui.title("Age Calculator") gui.geometry("525x260")
+dob = Label(gui, text="Date Of Birth", bg="blue") givenDate = Label(gui, text="Given Date", bg="blue") day = Label(gui, text="Day", bg="light green")
+month = Label(gui, text="Month", bg="light green") year = Label(gui, text="Year", bg="light green")
+givenDay = Label(gui, text="Given Day", bg="light green") givenMonth = Label(gui, text="Given Month", bg="light green") givenYear = Label(gui, text="Given Year", bg="light green") rsltYear = Label(gui, text="Years", bg="light green")
+rsltMonth = Label(gui, text="Months", bg="light green") rsltDay = Label(gui, text="Days", bg="light green")
+resultantAge = Button(gui, text="Resultant Age", fg="Black", bg="Red", command=calculateAge) clearAllEntry = Button(gui, text="Clear All", fg="Black", bg="Red", command=clearAll)
+dayField = Entry(gui) monthField = Entry(gui) yearField = Entry(gui) givenDayField = Entry(gui) givenMonthField = Entry(gui) givenYearField = Entry(gui) rsltYearField = Entry(gui) rsltMonthField = Entry(gui) rsltDayField = Entry(gui) dob.grid(row=0, column=1) day.grid(row=1, column=0) dayField.grid(row=1, column=1) month.grid(row=2, column=0)
+monthField.grid(row=2, column=1) year.grid(row=3, column=0) yearField.grid(row=3, column=1) givenDate.grid(row=0, column=4) givenDay.grid(row=1, column=3) givenDayField.grid(row=1, column=4) givenMonth.grid(row=2, column=3) givenMonthField.grid(row=2, column=4) givenYear.grid(row=3, column=3) givenYearField.grid(row=3, column=4) resultantAge.grid(row=4, column=2) rsltYear.grid(row=5, column=2) rsltYearField.grid(row=6, column=2) rsltMonth.grid(row=7, column=2) rsltMonthField.grid(row=8, column=2) rsltDay.grid(row=9, column=2)
+ 
+rsltDayField.grid(row=10, column=2) clearAllEntry.grid(row=12, column=2) gui.mainloop()
+
+***********************************OUTPUT:-*************************************
+
+***************************************************************************
+ 
+*********************************slip2(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- java programming
+PROGRAM NAME:- A) Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters. Sample String: 'The quick Brown Fox' Expected Output: No. of Upper case characters: 3 No. of Lower case characters: 13
+
+***************************************************************************
+def countcase(str):
+upper,lower=0,0 for i in str:
+if(i.isupper()==True):
+upper+=1 elif(i.islower()==True):
+lower+=1
+print(" No. of Upper case characters: ",upper) print(" No. of Lower case characters: ",lower) str=input("Enter string: ")
+countcase(str)
+********************************OUTPUT:-**********************************
+Enter the string you want: Hello I Am TYBBA(CA) Student Original String : Hello I Am TYBBA(CA) Student
+No. of Upper case characters : 11
+No. of Lower case Characters : 11
+***************************************************************************
+ 
+*********************************slip2(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- java programming
+PROGRAM NAME:- B) Write Python GUI program to create a digital clock with Tkinter to display the time
+***************************************************************************
+import time
+from tkinter import * canvas = Tk() canvas.title("Digital Clock")
+canvas.geometry("350x200") canvas.resizable(1,1)
+label = Label(canvas, font=("Courier", 30, 'bold'), bg="red", fg="white", bd =30) label.grid(row =0, column=1)
+def digitalclock():
+text_input = time.strftime("%H:%M:%S %p") label.config(text=text_input) label.after(200, digitalclock)
+digitalclock() canvas.mainloop()
+********************************OUTPUT:-**********************************
+
+***************************************************************************
+ 
+*********************************slip3(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- java programming
+PROGRAM NAME:- A)Write a Python program to check if a given key already exists in a dictionary. If key exists replace with another key/value pair.
+***************************************************************************
+d={'A':1,'B':2,'C':3}
+key=input("Enter key to check:") check_value = input("Enter Value: ") if key in d.keys():
+print("Key is present and value of the key is:") print(d[key])
+d.pop(key) d[key]=check_value else:
+print("Key isn't present!") d[key]=check_value print("Updated dictionary : ",d)
+********************************OUTPUT:-**********************************
+Enter key to check:A Enter Value: 4
+Key is present and value of the key is: 1 Updated dictionary: {'B': 2, 'C': 3, 'A': '4'}
+***************************************************************************
+ 
+*********************************slip3(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- B) Write a python script to define a class student having members roll no, name, age, gender. Create a subclass called Test with member marks of 3 subjects. Create three objects of the Test class and display all the details of the student with total marks.
+***************************************************************************
+class Student:
+def GetStudent(self):
+self.RollNo = int(input("\nEnter Student Roll No: ")) self.Name = input("Enter Student Name: ") self.Age = int(input("Enter Student Age: ")) self.Gender = input("Enter Student Gender: ")
+def PutStudent(self):
+print("Student Roll No:", self.RollNo) print("Student Name:", self.Name) print("Student Age:", self.Age) print("Student Gender:", self.Gender) class Test(Student):
+def GetMarks(self):
+self.MarkMar = int(input("Enter Marks of Marathi Subject: ")) self.MarkHin = int(input("Enter Marks of Hindi Subject: ")) self.MarkEng = int(input("Enter Marks of English Subject: ")) def PutMarks(self):
+print("Marathi Marks:", self.MarkMar) print("Hindi Marks:", self.MarkHin) print("English Marks:", self.MarkEng)
+total = self.MarkMar + self.MarkHin + self.MarkEng print("Total Marks:", total)
+n = int(input("Enter how many students: ")) lst = []
+for i in range(n):
+print(f"\nEnter details for Student {i+1}:") obj = Test()
+obj.GetStudent() obj.GetMarks() lst.append(obj) for i in range(n):
+print(f"\nDisplaying details of Student {i+1}:") lst[i].PutStudent()
+lst[i].PutMarks()
+ 
+********************************OUTPUT:-**********************************
+Enter How may students2 Enter Object Name:A ['A'] Enter Object Name:B ['A', 'B'] Enter Student Roll No:101 Enter Student Name:Priti Enter Student Age:10
+Enter Student Gender:F
+Enter Marks of Marathi Subject10 Enter Marks of Hindi Subject20 Enter Marks of Eglish Subject30 Display Details of Student 1 Student Roll No: 101
+Student Name: Priti Student Age: 10 Student Gender: F Marathi Marks: 10
+Hindi Marks: 20
+English Marks: 30
+Total Marks: 60
+Enter Student Roll No:201 Enter Student Name:Suhas Enter Student Age:20 Enter Student Gender:M
+Enter Marks of Marathi Subject30 Enter Marks of Hindi Subject40 Enter Marks of Eglish Subject50 Display Details of Student 2 Student Roll No: 201
+Student Name: Suhas Student Age: 20 Student Gender: M Marathi Marks: 30
+Hindi Marks: 40
+English Marks: 50
+Total Marks: 120
+***************************************************************************
+ 
+*********************************slip4(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME::- A) Write a python script to create a class Rectangle with data member’s length, width and methods area, perimeter which can compute the area and perimeter of rectangle
+***************************************************************************
+class Rect:
+def     init   (self, l2, w2):
+self.l = l2 self.w = w2
+def RectArea(self):
+self.a = self.l * self.w
+print("Area of Rectangle:", self.a) def RectPer(self):
+self.p = 2 * (self.l + self.w) print("Perimeter of Rectangle:", self.p) l1 = int(input("Enter Length: "))
+w1 = int(input("Enter Width: ")) Obj = Rect(l1, w1) Obj.RectArea()
+Obj.RectPer()
+********************************OUTPUT:-**********************************
+Enter Length:2 Enter Width:3
+Area of Rectangle: 6
+Perimeter of Rectangle: 10
+***************************************************************************
+ 
+*********************************slip4(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- Write Python GUI program to add items in listbox widget and to print and delete the selected items from listbox on button click. Provide three separate buttons to add, print and delete.
+***************************************************************************
+from tkinter import * def remove_item():
+selected_checkboxes = listbox.curselection()
+for selected_checkbox in selected_checkboxes[::-1]: listbox.delete(selected_checkbox)
+root = Tk() root.geometry("200x200")
+listbox = Listbox(root, selectmode=MULTIPLE) listbox.pack()
+items = ["Apple", "Orange", "Grapes", "Banana", "Mango"] for item in items:
+listbox.insert(END, item)
+Button(root, text="Delete", command=remove_item).pack() root.mainloop()
+*******************************OUTPUT:-**********************************
+ 
+
+
+***************************************************************************
+ 
+*********************************slip5(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+
+PROGRAM NAME:- A) Write a Python script using class, which has two methods get_String and print_String. get_String accept a string from the user and print_String print the string in upper case.
+***************************************************************************
+
+class IOString:
+def     init   (self):
+self.str1 = ""
+def get_String(self):
+self.str1 = input("Enter a string: ") def print_String(self):
+print(self.str1.upper()) str1 = IOString() str1.get_String() str1.print_String()
+********************************OUTPUT:-**********************************
+Hello i am TYBBA(CA) Student HELLO I AM TYBBA(CA) STUDEN
+***************************************************************************
+ 
+*********************************slip5(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- B) Write a python script to generate Fibonacci terms using generator function.
+***************************************************************************
+nterms = int(input("How many terms? ")) n1, n2 = 0, 1
+count = 0
+if nterms <= 0:
+print("Please enter a positive integer") elif nterms == 1:
+print("Fibonacci sequence up to", nterms, ":") print(n1)
+else:
+print("Fibonacci sequence:") while count < nterms:
+print(n1)
+nth = n1 + n2 n1 = n2
+n2 = nth count += 1
+********************************OUTPUT:-**********************************
+How many terms? 6 Fibonacci sequence: 0 1 1 2 3 5
+***************************************************************************
+ 
+*********************************slip6(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- Write python script using package to calculate area and volume of cube and sphere
+***************************************************************************
+import math class Cube:
+def     init   (self, edge):
+self.edge = edge def cube_area(self):
+cube_area = 6 * self.edge * self.edge print("Area of cube:", cube_area) def cube_volume(self):
+cube_volume = self.edge ** 3 print("Volume of cube:", cube_volume) class Sphere:
+def     init   (self, radius):
+self.radius = radius
+# Method to calculate the surface area of the sphere def sphere_area(self):
+sphere_area = 4 * math.pi * self.radius ** 2 print("Area of sphere:", sphere_area)
+# Method to calculate the volume of the sphere def sphere_volume(self):
+sphere_volume = (4/3) * math.pi * self.radius ** 3 print("Volume of sphere:", sphere_volume)
+# Create a Cube object with edge length 5 e1 = Cube(5)
+e1.cube_area() e1.cube_volume()
+# Create a Sphere object with radius 5 r1 = Sphere(5)
+r1.sphere_area() r1.sphere_volume()
+********************************OUTPUT:-**********************************
+Area of cube : 150 Volume of cube : 125
+Area of sphere : 314.1592653589793 volume of sphere : 523.5987755982989
+***************************************************************************
+ 
+*********************************slip6(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- B: Write a Python GUI program to create a label and change the label font style (font name, bold, size). Specify separate check button for each style.
+***************************************************************************
+import tkinter as tk
+import tkinter.font as tkFont class App:
+def     init   (self):
+root = tk.Tk()
+self.customFont = tkFont.Font(family="Helvetica", size=12) buttonframe = tk.Frame(root)
+label = tk.Label(root, text="Hello, world", font=self.customFont) text = tk.Text(root, width=20, height=2, font=self.customFont) buttonframe.pack(side="top", fill="x")
+label.pack() text.pack()
+text.insert("end", "Press +/- buttons to change\nfont size")
+bigger = tk.Button(buttonframe, text="+", command=self.OnBigger) smaller = tk.Button(buttonframe, text="-", command=self.OnSmaller) bigger.pack(side="left")
+smaller.pack(side="left") root.mainloop()
+def OnBigger(self):
+'''Make the font 2 points bigger''' size = self.customFont['size']
+self.customFont.configure(size=size + 2) def OnSmaller(self):
+'''Make the font 2 points smaller''' size = self.customFont['size']
+self.customFont.configure(size=size - 2) app = App()
+*******************************OUTPUT:-**********************************
+
+***************************************************************************
+ 
+*********************************slip7(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- Write Python class to perform addition of two complex numbers using binary + operator overloading
+***************************************************************************
+class Complex:
+def initComplex(self):
+self.realPart = int(input("Enter the Real Part: ")) self.imgPart = int(input("Enter the Imaginary Part: ")) def display(self):
+print(self.realPart, "+", self.imgPart, "i", sep="") def sum(self, c1, c2):
+self.realPart = c1.realPart + c2.realPart self.imgPart = c1.imgPart + c2.imgPart c1 = Complex()
+c2 = Complex() c3 = Complex()
+print("Enter first complex number:") c1.initComplex()
+print("First Complex Number: ", end="") c1.display()
+print("Enter second complex number:") c2.initComplex()
+print("Second Complex Number: ", end="") c2.display()
+print("Sum of two complex numbers is: ", end="") c3.sum(c1, c2)
+c3.display()
+*******************************OUTPUT:-**********************************
+Enter first complex number Enter the Real Part: 8
+Enter the Imaginary Part: 4 First Complex Number: 8+4i Enter second complex number Enter the Real Part: 3
+Enter the Imaginary Part: 2 Second Complex Number: 3+2i
+Sum of two complex numbers is 11+6i
+***************************************************************************
+ 
+*********************************slip7(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- B)Write python GUI program to generate a random password with upper and lower case letters.
+***************************************************************************
+import string import random
+from tkinter import * def password():
+clearAll()
+String = random.sample(string.ascii_letters, 6) + random.sample(string.digits, 4) random.shuffle(String)
+password = ''.join(String) passField.insert(10, str(password)) def clearAll():
+passField.delete(0, END)
+if     name	== "   main    ":
+gui = Tk() gui.configure(background="light green") gui.title("Random Password") gui.geometry("325x150")
+passin = Label(gui, text="Password", bg="#00ffff").pack() passField = Entry(gui)
+passField.pack()
+result = Button(gui, text="Generate Password", fg="Black", bg="gray", command=password).pack() clearAllEntry = Button(gui, text="Clear All", fg="Black", bg="Red", command=clearAll).pack() gui.mainloop()
+*******************************OUTPUT:-**********************************
+
+***************************************************************************
+ 
+*********************************slip8(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- A)Write a python script to find the repeated items of a tuple
+***************************************************************************
+def count(mytuple):
+s=set()
+for i in mytuple:
+if(mytuple.count(i)>1):
+s.add(i) return s
+n=int(input("Enter size of tuple: ")) print("Enter elements of tuple: ") mylist=list()
+for i in range(n):
+tup_ele=input() mylist.append(tup_ele) mytuple=tuple(mylist) print(count(mytuple))
+*******************************OUTPUT:-**********************************
+Enter the number of elements in list:3 Enter element1:10
+Enter element2:20 Enter element3:10
+Repeated elements in given tuple 10
+***************************************************************************
+ 
+*********************************slip8(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- B) Write a Python class which has two methods get_String and print_String. get_String accept a string from the user and print_String print the string in upper case. Further modify the program to reverse a string word by word and print it in lower case.
+***************************************************************************
+class slip8b:
+def     init   (self):
+self.user_string = "" def get_String(self):
+self.user_string = input("Enter a string: ") def print_String(self):
+print("Uppercase string:", self.user_string.upper()) def reverse_and_lower(self):
+reversed_sentence = "" word = ""
+i = len(self.user_string) - 1
+# Traverse the string from the end while i >= 0:
+if self.user_string[i] == ' ':
+if word:
+# Add the word to the reversed sentence if reversed_sentence:
+reversed_sentence += ' ' reversed_sentence += word word = "" # Reset the word else:
+word = self.user_string[i] + word # Build the word in reverse order i -= 1
+# Add the last word if there is any if word:
+if reversed_sentence:
+reversed_sentence += ' ' reversed_sentence += word
+# Print the reversed sentence in lowercase
+print("Reversed and lowercase string:", reversed_sentence.lower()) # Create object and test
+string_obj = slip8b() string_obj.get_String() string_obj.print_String() string_obj.reverse_and_lower()
+*******************************OUTPUT:-**********************************
+Enter any String: Priti String in Upper Case: PRITI
+String in Reverse & Lower case: itirp
+***************************************************************************
+ 
+*********************************slip9(A)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- A) Write a Python script using class to reverse a string word by word
+***************************************************************************
+class Slip9a:
+def get_string(self):
+self.str = input("Enter Your Name: ") def put_string(self):
+reversed_string = self.str[::-1] print("String in Reverse order:") print(reversed_string)
+obj1 = Slip9a() obj1.get_string() obj1.put_string()
+*******************************OUTPUT:-**********************************
+Enter any String: Hello String in Reverse: olleH
+***************************************************************************
+ 
+*********************************slip9(B)***********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- B) Write Python GUI program to accept a number n and check whether it is Prime, Perfect or Armstrong number or not. Specify three radio buttons.
+***************************************************************************
+from tkinter import * def perfect():
+try:
+number = int(numberField.get()) count = 0
+for i in range(1, number):
+if number % i == 0:
+count += i
+if count == number: perfect1.select()
+print(number, 'is a Perfect number!') else:
+perfect1.deselect()
+print(number, 'is not a Perfect number!') except ValueError:
+print("Please enter a valid number") def armstrong():
+try:
+number = int(numberField.get()) count = 0
+temp = number while temp > 0:
+digit = temp % 10 count += digit ** 3 temp //= 10
+if number == count: armstrong1.select()
+print(number, 'is an Armstrong number!') else:
+armstrong1.deselect()
+print(number, 'is not an Armstrong number!') except ValueError:
+print("Please enter a valid number") def prime():
+try:
+number = int(numberField.get()) if number > 1:
+for i in range(2, number):
+if (number % i) == 0: prime1.deselect()
+print(number, "is not a prime number") break
+else:
+ 
+prime1.select()
+print(number, "is a prime number") else:
+prime1.deselect()
+print(number, "is not a prime number") except ValueError:
+print("Please enter a valid number") root = Tk()
+root.title('Prime, Perfect, or Armstrong Number') root.geometry('300x200')
+numberField = Entry(root) numberField.pack()
+Button1 = Button(root, text='button', command=lambda: [armstrong(), prime(), perfect()]) Button1.pack()
+primeVar = IntVar() perfectVar = IntVar() armstrongVar = IntVar()
+armstrong1 = Checkbutton(root, text='Armstrong', variable=armstrongVar) prime1 = Checkbutton(root, text='Prime', variable=primeVar)
+perfect1 = Checkbutton(root, text='Perfect', variable=perfectVar) armstrong1.pack()
+prime1.pack() perfect1.pack() root.mainloop()
+*******************************OUTPUT:-**********************************
+
+
+6 The number is a Perfect number!
+************************************************************************
+ 
+
+*********************************slip10(A)**********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- A) Write Python GUI program to display an alert message when a button is pressed.
+***************************************************************************
+import tkinter.messagebox def onClick():
+tkinter.messagebox.showinfo("Title goes here","Message goes here") root = tkinter.Tk()
+button = tkinter.Button(root,text = "Click Me", command = onClick) button.pack()
+root.mainloop()
+*******************************OUTPUT:-**********************************
+
+***************************************************************************
+ 
+*********************************slip10(B)**********************************
+NAME:- SHINDE SAHIL VILAS	ROLL NO:- 6229 CLASS NAME:- TYBBA(CA)
+SUBJECT NAME:- Python programming
+PROGRAM NAME:- Write a Python class to find validity of a string of parentheses, '(', ')', '{', '}', '[' ']’. These brackets must be close in the correct order. for example "()" and "()[]{}" are valid but "[)", "({[)]" and "{{{" are invalid.
+
+***************************************************************************
+class Py:
+def is_valid_parenthese(self, str1):
+stack = []
+pchar = {"(": ")", "{": "}", "[": "]"}
+for parenthese in str1:
+if parenthese in pchar:
+stack.append(parenthese)
+elif len(stack) == 0 or pchar[stack.pop()] != parenthese:
+return False
+return len(stack) == 0 print(Py().is_valid_parenthese("(){}[]"))
+print(Py().is_valid_parenthese("[)({[)]"))
+print(Py().is_valid_parenthese("{{{"))
+
+*******************************OUTPUT:-**********************************
+True False False
+***************************************************************************
+ 
+
